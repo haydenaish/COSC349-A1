@@ -1,5 +1,5 @@
 
-create table if not exists sers
+create table if not exists users
 (
  userID varchar(50) not null,
  username varchar(30) not null,

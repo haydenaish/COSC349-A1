@@ -9,6 +9,8 @@ services:
       MYSQL_DATABASE: example
     ports:
       - "3306:3306"
+    volumes:
+      - ./db-init:/docker-entrypoint-initdb.d
 
   backend:
     build:

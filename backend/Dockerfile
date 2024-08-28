@@ -15,8 +15,16 @@ COPY src /app/src
 # Make the Gradle wrapper executable
 RUN chmod +x /app/gradlew
 
-# Expose 8080
+# Create fatJar
+RUN ./gradlew fatJar 
+
+# Stage 2: Runtime image
+FROM openjdk:17-jdk-slim
+
+WORKDIR /app
+
+COPY --from=builder /app/build/libs libs/
+
 EXPOSE 8080
 
-# Command to run the application
-ENTRYPOINT ["./gradlew", "run"]
+ENTRYPOINT ["java", "-jar", "/app/libs/backend-fat.jar"]

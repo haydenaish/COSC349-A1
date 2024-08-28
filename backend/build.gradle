@@ -12,6 +12,28 @@ repositories {
 	mavenCentral()
 }
 
+jar {
+    manifest {
+        attributes(
+            'Main-Class': project.hasProperty("mainClass") ? project.getProperty("mainClass") : defaultClassName
+        )
+    }
+}
+
+task fatJar(type: Jar) {
+    archiveBaseName.set('backend-fat')
+	manifest {
+        attributes(
+            'Main-Class': project.hasProperty("mainClass") ? project.getProperty("mainClass") : defaultClassName
+        )
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE  
+    with jar
+}
+
 dependencies {
 	def junitVer = "5.9.3";
 	testImplementation group: "org.junit.jupiter", name: "junit-jupiter-api", version: junitVer;
@@ -36,7 +58,6 @@ dependencies {
 	implementation group: "org.jdbi", name: "jdbi3-sqlobject", version: jdbiVer;
 	implementation group: 'org.apache.commons', name: 'commons-email', version: '1.5'
 
-	implementation group: "com.h2database", name: "h2", version: "2.2.220";
 	implementation group: "com.zaxxer", name: "HikariCP", version: "5.0.1";
 
 	implementation 'mysql:mysql-connector-java:8.0.32';

@@ -32,7 +32,7 @@ This web application helps student flats stay organized, manage tasks, and handl
 
 2. Start the application:
    ```
-   docker-compose up --build
+   docker compose up --build
    ```
 
 3. Access the application at `http://localhost:3000`
@@ -58,9 +58,9 @@ database configuration
 2. Make your changes
 3. Rebuild and restart the frontend container:
    ```
-   docker-compose down frontend
-   docker-compose build frontend
-   docker-compose up frontend
+   docker compose down frontend
+   docker compose build frontend
+   docker compose up frontend
    ```
 
 ### Making Changes to the Backend
@@ -69,9 +69,9 @@ database configuration
 2. Make your changes
 3. Rebuild and restart the backend container:
    ```
-   docker-compose down backend
-   docker-compose build backend
-   docker-compose up backend
+   docker compose down backend
+   docker compose build backend
+   docker compose up backend
    ```
 
 ## API Documentation

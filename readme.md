@@ -40,7 +40,7 @@ This web application helps student flats stay organized, manage tasks, and handl
 ## Project Structure
 
 ```
-student-flat-organizer/
+COSC349-A1/
 ├── frontend/           # React frontend
 ├── backend/            # Java backend
 ├── db-init/           # MySQL database seeders and tables

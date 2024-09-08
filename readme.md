@@ -43,9 +43,8 @@ This web application helps student flats stay organized, manage tasks, and handl
 COSC349-A1/
 ├── frontend/           # React frontend
 ├── backend/            # Java backend
-├── db-init/           # MySQL database seeders and tables
-├── my.cnf
-database configuration  
+├── db-init/            # MySQL database seeders and tables
+├── my.cnf              # database configuration  
 ├── docker-compose.yml  # Docker Compose configuration
 └── README.md           # This file
 ```
